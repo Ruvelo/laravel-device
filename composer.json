@@ -1,0 +1,87 @@
+{
+    "name": "ruvelo/laravel-device",
+    "description": "Device, browser, OS and bot detection for Laravel, with User-Agent Client Hints and a drop-in replacement for jenssegers/agent.",
+    "keywords": [
+        "laravel",
+        "user-agent",
+        "useragent",
+        "device-detection",
+        "browser",
+        "mobile",
+        "tablet",
+        "bot",
+        "crawler",
+        "client-hints",
+        "jenssegers-agent"
+    ],
+    "license": "MIT",
+    "type": "library",
+    "homepage": "https://ruvelo.github.io/laravel-device/",
+    "authors": [
+        {
+            "name": "François Bultez",
+            "homepage": "https://github.com/francoisbultez",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.3",
+        "laravel/framework": "^12.4.1|^13.0",
+        "mobiledetect/mobiledetectlib": "^4.11"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.13",
+        "laravel/pint": "^1.32",
+        "orchestra/testbench": "^10.0|^11.0",
+        "phpunit/phpunit": "^11.5|^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ruvelo\\Device\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ruvelo\\Device\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ruvelo\\Device\\DeviceServiceProvider"
+            ],
+            "aliases": {
+                "Agent": "Ruvelo\\Device\\Facades\\Agent"
+            }
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "lint": "pint --test",
+        "format": "pint",
+        "analyse": "phpstan analyse --memory-limit=1G",
+        "check": [
+            "@lint",
+            "@analyse",
+            "@test"
+        ],
+        "demo": "php demo/build.php build/site && cp -r art build/site/art && echo 'Serve it: php -S 127.0.0.1:8000 -t build, then open /site/'"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "support": {
+        "issues": "https://github.com/Ruvelo/laravel-device/issues",
+        "source": "https://github.com/Ruvelo/laravel-device"
+    },
+    "scripts-descriptions": {
+        "test": "Run the test suite",
+        "lint": "Check code style",
+        "format": "Fix code style",
+        "analyse": "Run static analysis",
+        "check": "Lint, analyse and test: what CI runs",
+        "demo": "Build the static demo site into build/"
+    }
+}
