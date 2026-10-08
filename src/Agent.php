@@ -419,15 +419,23 @@ class Agent
             return self::key((string) $this->browser()) === $wanted;
         }
 
+        // What we detected ("iPadOS", "Samsung", "Pixel 9") answers first...
+        $detected = array_map(self::key(...), array_filter([
+            (string) $this->platform(), $device->os->name, $device->browser->name, $device->brand, $device->model,
+        ]));
+
+        if (in_array($wanted, $detected, true)) {
+            return true;
+        }
+
+        // ...then Mobile Detect's and jenssegers/agent's rules, as before.
         foreach (static::getRules() as $name => $regex) {
             if (self::key($name) === $wanted) {
                 return $this->match(implode('|', (array) $regex));
             }
         }
 
-        return in_array($wanted, array_map(self::key(...), array_filter([
-            (string) $this->platform(), $device->os->name, $device->browser->name, $device->brand, $device->model,
-        ])), true);
+        return false;
     }
 
     /** Test the User-Agent against a regular expression (without delimiters). */
