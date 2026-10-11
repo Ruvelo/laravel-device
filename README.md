@@ -313,7 +313,7 @@ The demo and screenshots are built from the package itself: `composer demo` writ
 
 ## Credits
 
-Built by [François Bultez](https://github.com/francoisbultez) at [Ruvelo](https://github.com/Ruvelo), and everyone who [contributes](https://github.com/Ruvelo/laravel-device/graphs/contributors).
+Built by [François Bultez](https://github.com/francoisbultez) at [Valtry](https://valtry.co.uk/?utm_source=ruvelo&utm_medium=github&utm_campaign=laravel-device), the website security scanner, and everyone who [contributes](https://github.com/Ruvelo/laravel-device/graphs/contributors).
 
 Thanks to [Jens Segers](https://github.com/jenssegers) for [jenssegers/agent](https://github.com/jenssegers/agent), which served the Laravel community for a decade and whose API the `Agent` class keeps, and to [Şerban Ghiţă](https://github.com/serbanghita) and the contributors of [Mobile Detect](https://github.com/serbanghita/Mobile-Detect).
 
